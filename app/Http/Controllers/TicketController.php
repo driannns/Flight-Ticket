@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\FlightSchedule;
 use Illuminate\Http\Request;
 
+use App\Http\Resources\TicketResource;
+
 class TicketController extends Controller
 {
     /**
@@ -11,9 +13,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        // $ticket = FlightSchedule::paginate(10);
+        $posts = FlightSchedule::latest()->paginate(10);
 
-        // return view('index', compact('ticket'));
+        return new TicketResource(true, 'List Data Ticket', $posts);
     }
 
     /**
