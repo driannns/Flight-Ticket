@@ -32,5 +32,3 @@ Route::get('/', function () {
     }
     return view('index', compact('ticket', 'formattedScheduledTimes', 'formattedEstimatedTimes'));
 });
-
-Route::resource('ticket', TicketController::class);

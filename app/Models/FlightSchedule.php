@@ -9,7 +9,17 @@ class FlightSchedule extends Model
 {
     use HasFactory;
 
-    protected $protected = [
-        'id'
+    protected $fillable = [
+        'airline',
+        'departure',
+        'departure_code',
+        'arrival',
+        'arrival_code',
+        'class',
+        'price',
+        'duration',
+        'scheduled' ,
+        'estimated' ,
+        'date',
     ];
 }

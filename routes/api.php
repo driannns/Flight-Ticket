@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Api\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Read All
+Route::get('ticket', [TicketController::class, 'index']);
+
+// Create
+Route::post('ticket', [TicketController::class, 'store']);
+
+// Show
+Route::get('ticket/airline/{airline}', [TicketController::class, 'showByAirline']);
+
+// Update
+Route::put('ticket/{id}', [TicketController::class, 'update']);
+
+// Delete
+Route::delete('ticket/{id}', [TicketController::class, 'destroy']);
