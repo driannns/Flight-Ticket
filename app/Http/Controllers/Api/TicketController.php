@@ -68,7 +68,20 @@ class TicketController extends Controller
         $ticket = FlightSchedule::where('airline', 'LIKE', "%". $airline ."%")->get();
         
         return new TicketResource(true, 'Ticket Berdasarkan Airline', $ticket);
+    }
 
+    public function showByDepartureCode($departureCode)
+    {
+        $ticket = FlightSchedule::where('departure_code', 'LIKE', "%". $departureCode ."%")->get();
+        
+        return new TicketResource(true, 'Ticket Berdasarkan Departure Code', $ticket);
+    }
+
+    public function showByArrivalCode($arrivalCode)
+    {
+        $ticket = FlightSchedule::where('arrival_code', 'LIKE', "%". $arrivalCode ."%")->get();
+        
+        return new TicketResource(true, 'Ticket Berdasarkan Arrival Code', $ticket);
     }
 
     public function edit(string $id)

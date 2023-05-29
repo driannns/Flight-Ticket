@@ -24,6 +24,8 @@ Route::post('ticket', [TicketController::class, 'store']);
 
 // Show
 Route::get('ticket/airline/{airline}', [TicketController::class, 'showByAirline']);
+Route::get('ticket/departurecode/{departureCode}', [TicketController::class, 'showByDepartureCode']);
+Route::get('ticket/arrivalcode/{arrivalcode}', [TicketController::class, 'showByArrivalCode']);
 
 // Update
 Route::put('ticket/{id}', [TicketController::class, 'update']);
